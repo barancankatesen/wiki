@@ -4,14 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EntityLayer
+namespace ClassLibrary1
 {
-    public class Category:BaseClass
+    public class Class1
     {
-        public int CategoryID { get; set; }
-
-        
-
-
     }
 }

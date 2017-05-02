@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace EntityLayer
 {
-    public class Function
+    public class Function:BaseClass
     {
         public int FunctionID { get; set; }
         public string Code { get; set; }
-        public virtual List<Category> Categorileri { get; set; }
+        public List<int> Categories { get; set; }
+
+
     }
 }

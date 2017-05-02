@@ -9,7 +9,7 @@ namespace EntityLayer
 {
     public class BaseClass
     {
-        
+      
         public string Name { get; set; }
         public string Description { get; set; }
         public bool isDeleted { get; set; }

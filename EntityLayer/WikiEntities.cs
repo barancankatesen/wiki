@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace EntityLayer
 {
-    class WikiEntities:DbContext
+    public class WikiEntities:DbContext
     {
         public WikiEntities()
         {
-            Database.Connection.ConnectionString = "Server=localhost;Database=myDataBase;Uid=root;Pwd=max";
+            Database.Connection.ConnectionString = "Server=.;Database=CodeWikiDb;user=sa;password=denemebiriki3";
 
         }
 
