@@ -9,8 +9,11 @@ namespace EntityLayer
     public class Category:BaseClass
     {
         public int CategoryID { get; set; }
+        public override string ToString()
+        {
+            return Name;
+        }
 
-        
 
 
     }

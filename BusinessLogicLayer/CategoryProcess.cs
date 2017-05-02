@@ -45,7 +45,7 @@ namespace BusinessLogicLayer
 
         
 
-        public bool SaveObjectWithControl(Category ObjectToSave)
+        public static bool SaveObjectWithControl(Category ObjectToSave)
         {
             CategoryReposiyory CatReposit = new CategoryReposiyory();
             if (CatReposit.Add(ObjectToSave)>0)
@@ -64,10 +64,10 @@ namespace BusinessLogicLayer
             throw new NotImplementedException();
         }
 
-        public bool UpdateObjectWithControl(int IDToSelect, Category ToSave)
+        public static bool UpdateObjectWithControl( Category ToSave)
         {
             CategoryReposiyory CatReposit = new CategoryReposiyory();
-            if (CatReposit.Update(IDToSelect,ToSave)>0)
+            if (CatReposit.Update(ToSave.CategoryID,ToSave)>0)
             {
                 return true;
             }

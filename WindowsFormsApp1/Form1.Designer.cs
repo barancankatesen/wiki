@@ -58,7 +58,7 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnFonksiyonDuzenleYeniKategoriEkle = new System.Windows.Forms.Button();
             this.btnFonksiyonDuzenleYeniFonksiyonCikar = new System.Windows.Forms.Button();
-            this.lstFonksiyonEkleYeniKategoriGoster = new System.Windows.Forms.ListView();
+            this.lstFonksiyonDuzenleYeniKategoriGoster = new System.Windows.Forms.ListView();
             this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cmbFonksiyonDuzenleYeniKategoriSec = new System.Windows.Forms.ComboBox();
@@ -84,7 +84,7 @@
             this.btnKategoriIslemleriDuzenlemeIptal = new System.Windows.Forms.Button();
             this.btnKategoriIslemleriKategoriDuzenle_Kaydet = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.lstKategoriIslemleriKategoriAciklamasi = new System.Windows.Forms.TextBox();
+            this.txtKategoriIslemleriKategoriAciklamasi = new System.Windows.Forms.TextBox();
             this.btnKategoriIslemleriKategoriEkle = new System.Windows.Forms.Button();
             this.btnKategoriIslemleriKategoriSil = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
@@ -231,6 +231,7 @@
             this.btnFonksiyonEkleKategoriEkle.TabIndex = 12;
             this.btnFonksiyonEkleKategoriEkle.Text = "Ekle";
             this.btnFonksiyonEkleKategoriEkle.UseVisualStyleBackColor = true;
+            this.btnFonksiyonEkleKategoriEkle.Click += new System.EventHandler(this.btnFonksiyonEkleKategoriEkle_Click);
             // 
             // btnFonksiyonEkleKategoriCikar
             // 
@@ -240,6 +241,7 @@
             this.btnFonksiyonEkleKategoriCikar.TabIndex = 11;
             this.btnFonksiyonEkleKategoriCikar.Text = "Çıkar";
             this.btnFonksiyonEkleKategoriCikar.UseVisualStyleBackColor = true;
+            this.btnFonksiyonEkleKategoriCikar.Click += new System.EventHandler(this.btnFonksiyonEkleKategoriCikar_Click);
             // 
             // lstFonksiyonEkleKategoriGoster
             // 
@@ -281,6 +283,7 @@
             this.btnFonksiyonEkleFonksiyonuEkle.TabIndex = 8;
             this.btnFonksiyonEkleFonksiyonuEkle.Text = "Fonksiyonu Ekle";
             this.btnFonksiyonEkleFonksiyonuEkle.UseVisualStyleBackColor = true;
+            this.btnFonksiyonEkleFonksiyonuEkle.Click += new System.EventHandler(this.btnFonksiyonEkleFonksiyonuEkle_Click);
             // 
             // txtFonksiyonEkleKodGir
             // 
@@ -353,7 +356,7 @@
             // 
             this.tabPage3.Controls.Add(this.btnFonksiyonDuzenleYeniKategoriEkle);
             this.tabPage3.Controls.Add(this.btnFonksiyonDuzenleYeniFonksiyonCikar);
-            this.tabPage3.Controls.Add(this.lstFonksiyonEkleYeniKategoriGoster);
+            this.tabPage3.Controls.Add(this.lstFonksiyonDuzenleYeniKategoriGoster);
             this.tabPage3.Controls.Add(this.cmbFonksiyonDuzenleYeniKategoriSec);
             this.tabPage3.Controls.Add(this.label14);
             this.tabPage3.Controls.Add(this.btnFonksiyonDuzenleSeciliFonksiyonuSil);
@@ -387,6 +390,7 @@
             this.btnFonksiyonDuzenleYeniKategoriEkle.TabIndex = 20;
             this.btnFonksiyonDuzenleYeniKategoriEkle.Text = "Ekle";
             this.btnFonksiyonDuzenleYeniKategoriEkle.UseVisualStyleBackColor = true;
+            this.btnFonksiyonDuzenleYeniKategoriEkle.Click += new System.EventHandler(this.btnFonksiyonDuzenleYeniKategoriEkle_Click);
             // 
             // btnFonksiyonDuzenleYeniFonksiyonCikar
             // 
@@ -397,17 +401,17 @@
             this.btnFonksiyonDuzenleYeniFonksiyonCikar.Text = "Çıkar";
             this.btnFonksiyonDuzenleYeniFonksiyonCikar.UseVisualStyleBackColor = true;
             // 
-            // lstFonksiyonEkleYeniKategoriGoster
+            // lstFonksiyonDuzenleYeniKategoriGoster
             // 
-            this.lstFonksiyonEkleYeniKategoriGoster.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lstFonksiyonDuzenleYeniKategoriGoster.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader11,
             this.columnHeader12});
-            this.lstFonksiyonEkleYeniKategoriGoster.Location = new System.Drawing.Point(559, 59);
-            this.lstFonksiyonEkleYeniKategoriGoster.Name = "lstFonksiyonEkleYeniKategoriGoster";
-            this.lstFonksiyonEkleYeniKategoriGoster.Size = new System.Drawing.Size(390, 483);
-            this.lstFonksiyonEkleYeniKategoriGoster.TabIndex = 18;
-            this.lstFonksiyonEkleYeniKategoriGoster.UseCompatibleStateImageBehavior = false;
-            this.lstFonksiyonEkleYeniKategoriGoster.View = System.Windows.Forms.View.Details;
+            this.lstFonksiyonDuzenleYeniKategoriGoster.Location = new System.Drawing.Point(559, 59);
+            this.lstFonksiyonDuzenleYeniKategoriGoster.Name = "lstFonksiyonDuzenleYeniKategoriGoster";
+            this.lstFonksiyonDuzenleYeniKategoriGoster.Size = new System.Drawing.Size(390, 483);
+            this.lstFonksiyonDuzenleYeniKategoriGoster.TabIndex = 18;
+            this.lstFonksiyonDuzenleYeniKategoriGoster.UseCompatibleStateImageBehavior = false;
+            this.lstFonksiyonDuzenleYeniKategoriGoster.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader11
             // 
@@ -578,7 +582,7 @@
             this.tabPage4.Controls.Add(this.btnKategoriIslemleriDuzenlemeIptal);
             this.tabPage4.Controls.Add(this.btnKategoriIslemleriKategoriDuzenle_Kaydet);
             this.tabPage4.Controls.Add(this.label10);
-            this.tabPage4.Controls.Add(this.lstKategoriIslemleriKategoriAciklamasi);
+            this.tabPage4.Controls.Add(this.txtKategoriIslemleriKategoriAciklamasi);
             this.tabPage4.Controls.Add(this.btnKategoriIslemleriKategoriEkle);
             this.tabPage4.Controls.Add(this.btnKategoriIslemleriKategoriSil);
             this.tabPage4.Controls.Add(this.label9);
@@ -601,6 +605,7 @@
             this.btnKategoriIslemleriDuzenlemeIptal.TabIndex = 8;
             this.btnKategoriIslemleriDuzenlemeIptal.Text = "İptal";
             this.btnKategoriIslemleriDuzenlemeIptal.UseVisualStyleBackColor = true;
+            this.btnKategoriIslemleriDuzenlemeIptal.Visible = false;
             // 
             // btnKategoriIslemleriKategoriDuzenle_Kaydet
             // 
@@ -610,7 +615,7 @@
             this.btnKategoriIslemleriKategoriDuzenle_Kaydet.TabIndex = 7;
             this.btnKategoriIslemleriKategoriDuzenle_Kaydet.Text = "Düzenle";
             this.btnKategoriIslemleriKategoriDuzenle_Kaydet.UseVisualStyleBackColor = true;
-            this.btnKategoriIslemleriKategoriDuzenle_Kaydet.Visible = false;
+            this.btnKategoriIslemleriKategoriDuzenle_Kaydet.Click += new System.EventHandler(this.btnKategoriIslemleriKategoriDuzenle_Kaydet_Click);
             // 
             // label10
             // 
@@ -621,12 +626,12 @@
             this.label10.TabIndex = 6;
             this.label10.Text = "Kategori Açıklamasını Giriniz";
             // 
-            // lstKategoriIslemleriKategoriAciklamasi
+            // txtKategoriIslemleriKategoriAciklamasi
             // 
-            this.lstKategoriIslemleriKategoriAciklamasi.Location = new System.Drawing.Point(188, 19);
-            this.lstKategoriIslemleriKategoriAciklamasi.Name = "lstKategoriIslemleriKategoriAciklamasi";
-            this.lstKategoriIslemleriKategoriAciklamasi.Size = new System.Drawing.Size(320, 20);
-            this.lstKategoriIslemleriKategoriAciklamasi.TabIndex = 5;
+            this.txtKategoriIslemleriKategoriAciklamasi.Location = new System.Drawing.Point(188, 19);
+            this.txtKategoriIslemleriKategoriAciklamasi.Name = "txtKategoriIslemleriKategoriAciklamasi";
+            this.txtKategoriIslemleriKategoriAciklamasi.Size = new System.Drawing.Size(320, 20);
+            this.txtKategoriIslemleriKategoriAciklamasi.TabIndex = 5;
             // 
             // btnKategoriIslemleriKategoriEkle
             // 
@@ -636,6 +641,7 @@
             this.btnKategoriIslemleriKategoriEkle.TabIndex = 4;
             this.btnKategoriIslemleriKategoriEkle.Text = "Ekle";
             this.btnKategoriIslemleriKategoriEkle.UseVisualStyleBackColor = true;
+            this.btnKategoriIslemleriKategoriEkle.Click += new System.EventHandler(this.btnKategoriIslemleriKategoriEkle_Click);
             // 
             // btnKategoriIslemleriKategoriSil
             // 
@@ -645,6 +651,7 @@
             this.btnKategoriIslemleriKategoriSil.TabIndex = 3;
             this.btnKategoriIslemleriKategoriSil.Text = "Sil";
             this.btnKategoriIslemleriKategoriSil.UseVisualStyleBackColor = true;
+            this.btnKategoriIslemleriKategoriSil.Click += new System.EventHandler(this.btnKategoriIslemleriKategoriSil_Click);
             // 
             // label9
             // 
@@ -667,6 +674,8 @@
             this.lstKategoriIslemleriKategoriGoster.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader4,
             this.columnHeader5});
+            this.lstKategoriIslemleriKategoriGoster.FullRowSelect = true;
+            this.lstKategoriIslemleriKategoriGoster.GridLines = true;
             this.lstKategoriIslemleriKategoriGoster.Location = new System.Drawing.Point(11, 45);
             this.lstKategoriIslemleriKategoriGoster.Name = "lstKategoriIslemleriKategoriGoster";
             this.lstKategoriIslemleriKategoriGoster.Size = new System.Drawing.Size(497, 238);
@@ -693,6 +702,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -750,7 +760,7 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Button btnKategoriIslemleriKategoriDuzenle_Kaydet;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox lstKategoriIslemleriKategoriAciklamasi;
+        private System.Windows.Forms.TextBox txtKategoriIslemleriKategoriAciklamasi;
         private System.Windows.Forms.Button btnKategoriIslemleriKategoriEkle;
         private System.Windows.Forms.Button btnKategoriIslemleriKategoriSil;
         private System.Windows.Forms.Label label9;
@@ -766,7 +776,7 @@
         private System.Windows.Forms.Button btnFonksiyonDuzenleSeciliFonksiyonuSil;
         private System.Windows.Forms.Button btnFonksiyonDuzenleYeniKategoriEkle;
         private System.Windows.Forms.Button btnFonksiyonDuzenleYeniFonksiyonCikar;
-        private System.Windows.Forms.ListView lstFonksiyonEkleYeniKategoriGoster;
+        private System.Windows.Forms.ListView lstFonksiyonDuzenleYeniKategoriGoster;
         private System.Windows.Forms.ColumnHeader columnHeader11;
         private System.Windows.Forms.ColumnHeader columnHeader12;
         private System.Windows.Forms.ComboBox cmbFonksiyonDuzenleYeniKategoriSec;
