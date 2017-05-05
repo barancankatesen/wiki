@@ -48,6 +48,11 @@ namespace DataAccessLayer
             throw new NotImplementedException();
         }
 
+        public List<object> SearchByString(string StrToSearch)
+        {
+            throw new NotImplementedException();
+        }
+
         public int Update(int IDToSelect, Category ToUpdate)
         {
             Category CategoryToUpdate = con.Categories.SingleOrDefault(t => t.CategoryID == IDToSelect);

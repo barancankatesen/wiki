@@ -14,6 +14,7 @@ namespace DataAccessLayer
         int Add(object ObjectToAdd);
         int Update(int IDToSelect, object ToUpdate);
         int DeleteByID(int IDToDelete);
+        List<object> SearchByString(string StrToSearch);
 
     }
 }

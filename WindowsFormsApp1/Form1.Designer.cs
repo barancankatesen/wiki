@@ -140,16 +140,20 @@
             // 
             // lstFonksiyonBulFonksiyonListele
             // 
+            this.lstFonksiyonBulFonksiyonListele.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.lstFonksiyonBulFonksiyonListele.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
+            this.lstFonksiyonBulFonksiyonListele.FullRowSelect = true;
+            this.lstFonksiyonBulFonksiyonListele.GridLines = true;
             this.lstFonksiyonBulFonksiyonListele.Location = new System.Drawing.Point(8, 62);
             this.lstFonksiyonBulFonksiyonListele.Name = "lstFonksiyonBulFonksiyonListele";
             this.lstFonksiyonBulFonksiyonListele.Size = new System.Drawing.Size(542, 240);
             this.lstFonksiyonBulFonksiyonListele.TabIndex = 5;
             this.lstFonksiyonBulFonksiyonListele.UseCompatibleStateImageBehavior = false;
             this.lstFonksiyonBulFonksiyonListele.View = System.Windows.Forms.View.Details;
+            this.lstFonksiyonBulFonksiyonListele.SelectedIndexChanged += new System.EventHandler(this.lstFonksiyonBulFonksiyonListele_SelectedIndexChanged_1);
             // 
             // columnHeader1
             // 
@@ -191,13 +195,15 @@
             this.cmbFonksiyonBulKategoriSec.Name = "cmbFonksiyonBulKategoriSec";
             this.cmbFonksiyonBulKategoriSec.Size = new System.Drawing.Size(121, 21);
             this.cmbFonksiyonBulKategoriSec.TabIndex = 2;
+            this.cmbFonksiyonBulKategoriSec.SelectedIndexChanged += new System.EventHandler(this.cmbFonksiyonBulKategoriSec_SelectedIndexChanged);
             // 
             // txtFonksiyonBulFonksiyonAra
             // 
             this.txtFonksiyonBulFonksiyonAra.Location = new System.Drawing.Point(87, 36);
             this.txtFonksiyonBulFonksiyonAra.Name = "txtFonksiyonBulFonksiyonAra";
-            this.txtFonksiyonBulFonksiyonAra.Size = new System.Drawing.Size(100, 20);
+            this.txtFonksiyonBulFonksiyonAra.Size = new System.Drawing.Size(121, 20);
             this.txtFonksiyonBulFonksiyonAra.TabIndex = 1;
+            this.txtFonksiyonBulFonksiyonAra.TextChanged += new System.EventHandler(this.txtFonksiyonBulFonksiyonAra_TextChanged);
             // 
             // tabPage2
             // 
@@ -221,6 +227,7 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = " Fonksiyon Ekle";
             this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             this.tabPage2.Enter += new System.EventHandler(this.tabPage2_Enter);
             // 
             // btnFonksiyonEkleKategoriEkle
@@ -248,6 +255,8 @@
             this.lstFonksiyonEkleKategoriGoster.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader9,
             this.columnHeader10});
+            this.lstFonksiyonEkleKategoriGoster.FullRowSelect = true;
+            this.lstFonksiyonEkleKategoriGoster.GridLines = true;
             this.lstFonksiyonEkleKategoriGoster.Location = new System.Drawing.Point(523, 63);
             this.lstFonksiyonEkleKategoriGoster.Name = "lstFonksiyonEkleKategoriGoster";
             this.lstFonksiyonEkleKategoriGoster.Size = new System.Drawing.Size(390, 483);
@@ -337,6 +346,8 @@
             // 
             // cmbFonksiyonEkleKategoriSec
             // 
+            this.cmbFonksiyonEkleKategoriSec.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbFonksiyonEkleKategoriSec.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbFonksiyonEkleKategoriSec.FormattingEnabled = true;
             this.cmbFonksiyonEkleKategoriSec.Location = new System.Drawing.Point(610, 36);
             this.cmbFonksiyonEkleKategoriSec.Name = "cmbFonksiyonEkleKategoriSec";
@@ -400,12 +411,15 @@
             this.btnFonksiyonDuzenleYeniFonksiyonCikar.TabIndex = 19;
             this.btnFonksiyonDuzenleYeniFonksiyonCikar.Text = "Çıkar";
             this.btnFonksiyonDuzenleYeniFonksiyonCikar.UseVisualStyleBackColor = true;
+            this.btnFonksiyonDuzenleYeniFonksiyonCikar.Click += new System.EventHandler(this.btnFonksiyonDuzenleYeniFonksiyonCikar_Click);
             // 
             // lstFonksiyonDuzenleYeniKategoriGoster
             // 
             this.lstFonksiyonDuzenleYeniKategoriGoster.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader11,
             this.columnHeader12});
+            this.lstFonksiyonDuzenleYeniKategoriGoster.FullRowSelect = true;
+            this.lstFonksiyonDuzenleYeniKategoriGoster.GridLines = true;
             this.lstFonksiyonDuzenleYeniKategoriGoster.Location = new System.Drawing.Point(559, 59);
             this.lstFonksiyonDuzenleYeniKategoriGoster.Name = "lstFonksiyonDuzenleYeniKategoriGoster";
             this.lstFonksiyonDuzenleYeniKategoriGoster.Size = new System.Drawing.Size(390, 483);
@@ -448,6 +462,7 @@
             this.btnFonksiyonDuzenleSeciliFonksiyonuSil.TabIndex = 15;
             this.btnFonksiyonDuzenleSeciliFonksiyonuSil.Text = "Seçili Fonksiyonu Sil";
             this.btnFonksiyonDuzenleSeciliFonksiyonuSil.UseVisualStyleBackColor = true;
+            this.btnFonksiyonDuzenleSeciliFonksiyonuSil.Click += new System.EventHandler(this.btnFonksiyonDuzenleSeciliFonksiyonuSil_Click);
             // 
             // btnFonksiyonDuzenleOrjinaleDon
             // 
@@ -457,6 +472,7 @@
             this.btnFonksiyonDuzenleOrjinaleDon.TabIndex = 14;
             this.btnFonksiyonDuzenleOrjinaleDon.Text = "Orjinale Dön";
             this.btnFonksiyonDuzenleOrjinaleDon.UseVisualStyleBackColor = true;
+            this.btnFonksiyonDuzenleOrjinaleDon.Click += new System.EventHandler(this.btnFonksiyonDuzenleOrjinaleDon_Click);
             // 
             // btnFonksiyonDuzenleFonksiyonKaydet
             // 
@@ -466,6 +482,7 @@
             this.btnFonksiyonDuzenleFonksiyonKaydet.TabIndex = 13;
             this.btnFonksiyonDuzenleFonksiyonKaydet.Text = "Kaydet";
             this.btnFonksiyonDuzenleFonksiyonKaydet.UseVisualStyleBackColor = true;
+            this.btnFonksiyonDuzenleFonksiyonKaydet.Click += new System.EventHandler(this.btnFonksiyonDuzenleFonksiyonKaydet_Click);
             // 
             // label13
             // 
@@ -522,12 +539,15 @@
             this.columnHeader6,
             this.columnHeader7,
             this.columnHeader8});
+            this.lstFonksiyonDuzenleFonkiyonGoster.FullRowSelect = true;
+            this.lstFonksiyonDuzenleFonkiyonGoster.GridLines = true;
             this.lstFonksiyonDuzenleFonkiyonGoster.Location = new System.Drawing.Point(8, 59);
             this.lstFonksiyonDuzenleFonkiyonGoster.Name = "lstFonksiyonDuzenleFonkiyonGoster";
             this.lstFonksiyonDuzenleFonkiyonGoster.Size = new System.Drawing.Size(545, 240);
             this.lstFonksiyonDuzenleFonkiyonGoster.TabIndex = 6;
             this.lstFonksiyonDuzenleFonkiyonGoster.UseCompatibleStateImageBehavior = false;
             this.lstFonksiyonDuzenleFonkiyonGoster.View = System.Windows.Forms.View.Details;
+            this.lstFonksiyonDuzenleFonkiyonGoster.SelectedIndexChanged += new System.EventHandler(this.lstFonksiyonDuzenleFonkiyonGoster_SelectedIndexChanged);
             // 
             // columnHeader6
             // 
@@ -606,6 +626,7 @@
             this.btnKategoriIslemleriDuzenlemeIptal.Text = "İptal";
             this.btnKategoriIslemleriDuzenlemeIptal.UseVisualStyleBackColor = true;
             this.btnKategoriIslemleriDuzenlemeIptal.Visible = false;
+            this.btnKategoriIslemleriDuzenlemeIptal.Click += new System.EventHandler(this.btnKategoriIslemleriDuzenlemeIptal_Click);
             // 
             // btnKategoriIslemleriKategoriDuzenle_Kaydet
             // 

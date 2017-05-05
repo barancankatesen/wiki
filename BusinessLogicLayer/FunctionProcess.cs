@@ -49,10 +49,10 @@ namespace BusinessLogicLayer
             }
         }
 
-        public static bool UpdateObjectWithControl(int IDToSelect, Function ToSave)
+        public static bool UpdateObjectWithControl(Function ToSave)
         {
             FunctionRepository FuncRepository = new FunctionRepository();
-            if (FuncRepository.Update(IDToSelect,ToSave)>0)
+            if (FuncRepository.Update(ToSave)>0)
             {
                 return true;
             }

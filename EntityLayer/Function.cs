@@ -10,7 +10,7 @@ namespace EntityLayer
     {
         public int FunctionID { get; set; }
         public string Code { get; set; }
-        public List<int> Categories { get; set; }
+        public virtual List<Category> Categories { get; set; }
 
 
     }

@@ -13,6 +13,7 @@ using DataAccessLayer;
 
 namespace WindowsFormsApp1
 {
+   
     public partial class Form1 : Form
     {
         public Form1()
@@ -24,6 +25,8 @@ namespace WindowsFormsApp1
         {
             ClearForm();
         }
+
+        Category SelectedCategory = new Category();
 
         private void ClearForm()
         {
@@ -98,6 +101,38 @@ namespace WindowsFormsApp1
             cmbFonksiyonEkleKategoriSecDoldur();
             cmbFonksiyonDuzenleYeniKategoriSecDoldur();
             lstKategoriIslemleriKategoriGosterDoldur();
+            lstFonksiyonBulFonksiyonListeleDoldur();
+            lstFonksiyonDuzenleFonkiyonGosterDoldur();
+        }
+
+        private void lstFonksiyonDuzenleFonkiyonGosterDoldur()
+        {
+            lstFonksiyonDuzenleFonkiyonGoster.Items.Clear();
+            FunctionRepository FuncRepository = new FunctionRepository();
+            foreach (Function item in FuncRepository.GetAll())
+            {
+                ListViewItem li = new ListViewItem();
+                li.Text = item.Name;
+                li.SubItems.Add(item.Description);
+                li.SubItems.Add(item.Code);
+                li.Tag = item;
+                lstFonksiyonDuzenleFonkiyonGoster.Items.Add(li);
+            }
+        }
+
+        private void lstFonksiyonBulFonksiyonListeleDoldur()
+        {
+            lstFonksiyonBulFonksiyonListele.Items.Clear();
+            FunctionRepository FuncRepository = new FunctionRepository();
+            foreach (Function item in FuncRepository.GetAll())
+            {
+                ListViewItem li = new ListViewItem();
+                li.Text = item.Name;
+                li.SubItems.Add(item.Description);
+                li.SubItems.Add(item.Code);
+                li.Tag = item;
+                lstFonksiyonBulFonksiyonListele.Items.Add(li);
+            }
         }
 
         private void lstKategoriIslemleriKategoriGosterDoldur()
@@ -127,7 +162,7 @@ namespace WindowsFormsApp1
 
         private void ComboBoxKategoriSecDoldur(ComboBox cmb)
         {
-            cmbFonksiyonBulKategoriSec.Items.Clear();
+            cmb.Items.Clear();
             CategoryReposiyory CatRepository = new CategoryReposiyory();
             foreach (Category item in CatRepository.GetAll())
             {
@@ -227,7 +262,44 @@ namespace WindowsFormsApp1
 
         private void btnFonksiyonDuzenleYeniKategoriEkle_Click(object sender, EventArgs e)
         {
-            
+            //if (cmbFonksiyonDuzenleYeniKategoriSec.SelectedItem!=null)
+            //{
+            //    Category Cat = ((Category)cmbFonksiyonDuzenleYeniKategoriSec.SelectedItem);
+
+            //    ListViewItem li = new ListViewItem();
+            //    li.Text = Cat.Name;
+            //    li.SubItems.Add(Cat.Description);
+            //    li.Tag = Cat;
+            //    lstFonksiyonDuzenleYeniKategoriGoster.Items.Add(li);
+
+            //}
+
+
+
+
+
+
+            Category CatToAdd = (Category)cmbFonksiyonDuzenleYeniKategoriSec.SelectedItem;
+            ListViewItem li = new ListViewItem();
+            li.Text = CatToAdd.Name;
+            li.SubItems.Add(CatToAdd.Description);
+            li.Tag = CatToAdd;
+            bool varmi = false;
+            foreach (ListViewItem item in lstFonksiyonDuzenleYeniKategoriGoster.Items)
+            {
+                if (((Category)item.Tag).CategoryID == CatToAdd.CategoryID)
+                {
+                    varmi = true;
+                }
+            }
+            if (!varmi)
+            {
+                lstFonksiyonDuzenleYeniKategoriGoster.Items.Add(li);
+            }
+
+
+
+
         }
 
         private void btnFonksiyonEkleKategoriEkle_Click(object sender, EventArgs e)
@@ -262,27 +334,179 @@ namespace WindowsFormsApp1
 
         private void btnFonksiyonEkleFonksiyonuEkle_Click(object sender, EventArgs e)
         {
+            //Function FuncToAdd = new Function();
+            //FuncToAdd.Name = txtFonksiyonEkleAdGir.Text;
+            //FuncToAdd.Description = txtFonksiyonEkleAciklamaGir.Text;
+            //FuncToAdd.Code = txtFonksiyonEkleKodGir.Text;
+            //List<int> categoryIDsToAdd = new List<int>();
+            //foreach (ListViewItem item in lstFonksiyonEkleKategoriGoster.Items)
+            //{
+            //    categoryIDsToAdd.Add(((Category)item.Tag).CategoryID);
+            //}
+            //FuncToAdd.Categories = categoryIDsToAdd;
+
+
+            //if (FunctionProcess.SaveObjectWithControl(FuncToAdd))
+            //{
+            //    MessageBox.Show("Yeni Fonksiyon Ekleme Başarılı");
+            //    AllRefresh();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Yeni Fonksiyon Ekleme BAŞARISIZ");
+            //}
+
+
             Function FuncToAdd = new Function();
             FuncToAdd.Name = txtFonksiyonEkleAdGir.Text;
             FuncToAdd.Description = txtFonksiyonEkleAciklamaGir.Text;
             FuncToAdd.Code = txtFonksiyonEkleKodGir.Text;
-            
-            List<int> FuncToAddCategories = new List<int>();
+            List<Category> categorysToAdd = new List<Category>();
             foreach (ListViewItem item in lstFonksiyonEkleKategoriGoster.Items)
             {
-                int CatID = ((Category)item.Tag).CategoryID;
-                FuncToAddCategories.Add(CatID);
+                categorysToAdd.Add(((Category)item.Tag));
+
             }
-            FuncToAdd.Categories = FuncToAddCategories;
+            FuncToAdd.Categories = categorysToAdd;
             if (FunctionProcess.SaveObjectWithControl(FuncToAdd))
             {
-                MessageBox.Show("Yeni Fonksiyon Ekleme Başarılı");
+                MessageBox.Show("Fonksiyon Ekleme İşlemi Başarılı");
+                AllRefresh();
+
             }
-            else
+
+
+
+            
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstFonksiyonBulFonksiyonListele_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListViewItem li = lstFonksiyonBulFonksiyonListele.FocusedItem;
+            txtFonksiyonBulKodGoster.Text = ((Function)li.Tag).Code;
+        }
+
+        private void cmbFonksiyonBulKategoriSec_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            lstFonksiyonBulFonksiyonListele.Items.Clear();
+            SelectedCategory = (Category)cmbFonksiyonBulKategoriSec.SelectedItem;
+            FunctionRepository FuncRepository = new FunctionRepository();
+            List<Function> FullFunction = FuncRepository.GetAll();
+            List<Function> FilteredFunction = new List<Function>();
+
+            foreach (Function item in FullFunction)
             {
-                MessageBox.Show("Yeni Fonksiyon Ekleme BAŞARISIZ");
+                if (item.Categories != null && item.Categories.Contains(SelectedCategory))
+                {
+                    FilteredFunction.Add(item);
+                }
+
+            }
+
+            foreach (Function item in FilteredFunction)
+            {
+                ListViewItem li = new ListViewItem();
+                li.Text = item.Name;
+                li.SubItems.Add(item.Description);
+                li.SubItems.Add(item.Code);
+                li.Tag = item;
+                lstFonksiyonBulFonksiyonListele.Items.Add(li);
+
+
+            }
+        }
+
+        private void btnFonksiyonDuzenleSeciliFonksiyonuSil_Click(object sender, EventArgs e)
+        {
+            Function FuncToDelete = ((Function)lstFonksiyonDuzenleFonkiyonGoster.FocusedItem.Tag);
+            FunctionRepository FuncRepository = new FunctionRepository();
+            if (FunctionProcess.DeleteObjectWithControl(FuncToDelete))
+            {
+                MessageBox.Show("Silme İşlemi Başarılı");
+                AllRefresh();
             }
             
+        }
+
+        private void lstFonksiyonBulFonksiyonListele_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            txtFonksiyonBulKodGoster.Text = ((Function)lstFonksiyonBulFonksiyonListele.FocusedItem.Tag).Code;
+        }
+
+        private void lstFonksiyonDuzenleFonkiyonGoster_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TransmitFunc();
+            
+        }
+
+        private void TransmitFunc()
+        {
+            Function FuncToEdit = ((Function)lstFonksiyonDuzenleFonkiyonGoster.FocusedItem.Tag);
+            txtFonksiyonDuzenleYeniAdGir.Text = FuncToEdit.Name;
+            txtFonksiyonDuzenleYeniAciklamaGir.Text = FuncToEdit.Description;
+            txtFonksiyonDuzenleYeniKodGir.Text = FuncToEdit.Code;
+            lstFonksiyonDuzenleYeniKategoriGoster.Items.Clear();
+            btnFonksiyonDuzenleOrjinaleDon.Tag = FuncToEdit;
+            foreach (Category item in FuncToEdit.Categories)
+            {
+                ListViewItem li = new ListViewItem();
+                li.Text = item.Name;
+                li.SubItems.Add(item.Description);
+                li.Tag = item;
+                lstFonksiyonDuzenleYeniKategoriGoster.Items.Add(li);
+            }
+        }
+
+        private void txtFonksiyonBulFonksiyonAra_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFonksiyonDuzenleOrjinaleDon_Click(object sender, EventArgs e)
+        {
+            TransmitFunc();
+        }
+
+        private void btnFonksiyonDuzenleFonksiyonKaydet_Click(object sender, EventArgs e)
+        {
+            Function EditedFunction = new Function();
+            EditedFunction.FunctionID = ((Function)btnFonksiyonDuzenleOrjinaleDon.Tag).FunctionID;
+            EditedFunction.Name = txtFonksiyonDuzenleYeniAdGir.Text;
+            EditedFunction.Description = txtFonksiyonDuzenleYeniAciklamaGir.Text;
+            EditedFunction.Code = txtFonksiyonDuzenleYeniKodGir.Text;
+            List<Category> EditedCategoryList = new List<Category>();
+            foreach (ListViewItem item in lstFonksiyonDuzenleYeniKategoriGoster.Items)
+            {
+                Category Cat = ((Category)item.Tag);
+                EditedCategoryList.Add(Cat);
+            }
+            EditedFunction.Categories = EditedCategoryList;
+            if (FunctionProcess.UpdateObjectWithControl(EditedFunction))
+            {
+                MessageBox.Show("Düzenleme Kaydedildi");
+                AllRefresh();
+            }
+            
+        }
+
+        private void btnFonksiyonDuzenleYeniFonksiyonCikar_Click(object sender, EventArgs e)
+        {
+            if (lstFonksiyonDuzenleYeniKategoriGoster.FocusedItem != null)
+            {
+                lstFonksiyonDuzenleYeniKategoriGoster.Items.Remove(lstFonksiyonDuzenleYeniKategoriGoster.FocusedItem);
+            }
+        }
+
+        private void btnKategoriIslemleriDuzenlemeIptal_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

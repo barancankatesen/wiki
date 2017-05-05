@@ -50,10 +50,20 @@ namespace DataAccessLayer
             throw new NotImplementedException();
         }
 
-        public int Update(int IDToSelect, Function ToUpdate)
+        public List<Function> SearchByString(string StrToSearch)
         {
-            Function FuntionToUpdate = ((Function)con.Functions.SingleOrDefault(t => t.FunctionID == IDToSelect&&t.isDeleted==false));
-            FuntionToUpdate = ToUpdate;
+            //List<Function> FoundedList=con.Functions.Where(t=>t.Name.To)
+            List<Function> asd = new List<Function>();
+            return asd;
+        }
+
+        public int Update(Function ToUpdate)
+        {
+            Function FunctionToUpdate = ((Function)con.Functions.SingleOrDefault(t => t.FunctionID == ToUpdate.FunctionID&&t.isDeleted==false));
+            FunctionToUpdate.Name = ToUpdate.Name;
+            FunctionToUpdate.Description = ToUpdate.Description;
+            FunctionToUpdate.Code = ToUpdate.Code;
+            FunctionToUpdate.Categories = ToUpdate.Categories;
             return con.SaveChanges();
         }
 
@@ -68,6 +78,11 @@ namespace DataAccessLayer
         }
 
         object IRepository.GetByID(int IDToGet)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<object> IRepository.SearchByString(string StrToSearch)
         {
             throw new NotImplementedException();
         }
