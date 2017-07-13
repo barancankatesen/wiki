@@ -10,7 +10,7 @@ namespace BusinessLogicLayer
 {
     public class CategoryProcess 
     {
-        
+        //hasan
         public static bool DeleteObjectWithControl(Category ObjectToDelete)
         {
             CategoryReposiyory CatReposit = new CategoryReposiyory();
